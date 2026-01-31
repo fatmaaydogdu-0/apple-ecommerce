@@ -1,0 +1,246 @@
+<section class="w-100" style="background: white; padding: 40px 0">
+  <div class="container">
+    <nav
+      class="py-3 mt-5 mb-5"
+      style="--bs-breadcrumb-divider: '>'"
+      aria-label="breadcrumb"
+    >
+      <ol class="breadcrumb mb-3">
+        <li class="breadcrumb-item">
+          <a href="/" class="text-decoration-none text-muted">Home</a>
+        </li>
+
+        <li class="breadcrumb-item">
+          <a href="/products" class="text-decoration-none text-muted">
+            Catalog
+          </a>
+        </li>
+
+        <% if (product && product.Category) { %>
+        <li class="breadcrumb-item text-muted"><%= product.Category.name %></li>
+        <% } %>
+
+        <li class="breadcrumb-item active text-dark" aria-current="page">
+          <%= product.name %>
+        </li>
+      </ol>
+    </nav>
+
+    <div class="row align-items-start g-5" style="background-color: white">
+      <div class="col-md-6">
+        <div class="d-flex gap-3">
+          <!-- Küçük görseller -->
+          <div class="d-flex flex-column gap-3">
+            <% for(let i = 0; i < 4; i++) { %>
+          
+              <img
+                src="<%= product.image %>"
+                class="thumb-img"
+                alt="<%= product.name %>"
+                width="90"
+              />
+         
+            <% } %>
+          </div>
+
+          <!-- Ana görsel -->
+          <div class="product-image-container flex-grow-1">
+            <img
+              id="mainProductImage"
+              src="<%= product.image ? product.image : '/static/images/Iphone.png' %>"
+              alt="<%= product.name %>"
+              class="img-fluid main-img"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ÜRÜN BİLGİLERİ -->
+      <div class="col-md-6">
+        <h1 class="fw-bold mb-3"><%= product.name %></h1>
+
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <span class="fs-3 fw-bold">$<%= product.price %></span>
+          <span class="text-muted text-decoration-line-through">$1499</span>
+        </div>
+
+        <div>
+          <div class="d-flex align-items-center gap-3">
+            <h4 class="mb-0">Select color :</h4>
+            <img src="/static/images/Frame 427319309 (1).png" alt="" />
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-3 mt-4 mb-4">
+          <div class="fw-semibold mb-2"><h5>Select capacity :</h5></div>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <button class="btn btn-outline-secondary px-4 py-2" disabled>
+              128GB
+            </button>
+
+            <button class="btn btn-outline-secondary px-4 py-2" disabled>256GB</button>
+
+            <button class="btn btn-outline-secondary px-4 py-2" disabled>512GB</button>
+
+            <button class="btn btn-dark px-4 py-2">1TB</button>
+          </div>
+        </div>
+
+
+        <div class="row g-3 mb-4">
+
+    
+          <div class="col-6 col-md-4">
+            <div class="bg-light rounded-3 p-3 d-flex align-items-center gap-3 h-100">
+              <img src="/static/images/icons/Screensize.png" width="28" />
+              <div>
+                <div class="fw-semibold small">Screen size</div>
+                <div class="text-muted">6.7"</div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6 col-md-4">
+            <div class="bg-light rounded-3 p-3 d-flex align-items-center gap-3 h-100">
+              <img src="/static/images/icons/smartphone-rotate-2-svgrepo-com 2.png" width="28" />
+              <div>
+                <div class="fw-semibold small">CPU</div>
+                <div class="text-muted">Apple A16 Bionic</div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6 col-md-4">
+            <div class="bg-light rounded-3 p-3 d-flex align-items-center gap-3 h-100">
+              <img src="/static/images/icons/smartphone-rotate-2-svgrepo-com 2 (1).png" width="28" />
+              <div>
+                <div class="fw-semibold small">Cores</div>
+                <div class="text-muted">6</div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6 col-md-4">
+            <div class="bg-light rounded-3 p-3 d-flex align-items-center gap-3 h-100">
+              <img src="/static/images/icons/smartphone-rotate-2-svgrepo-com 2 (2).png" width="28" />
+              <div>
+                <div class="fw-semibold small">Main camera</div>
+                <div class="text-muted">48-12-12 MP</div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6 col-md-4">
+            <div class="bg-light rounded-3 p-3 d-flex align-items-center gap-3 h-100">
+              <img src="/static/images/icons/smartphone-rotate-2-svgrepo-com 2 (3).png" width="28" />
+              <div>
+                <div class="fw-semibold small">Front camera</div>
+                <div class="text-muted">12 MP</div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6 col-md-4">
+            <div class="bg-light rounded-3 p-3 d-flex align-items-center gap-3 h-100">
+              <img src="/static/images/icons/smartphone-rotate-2-svgrepo-com 2 (4).png" width="28" />
+              <div>
+                <div class="fw-semibold small">Battery</div>
+                <div class="text-muted">4323 mAh</div>
+              </div>
+            </div>
+          </div>
+        
+          <p class="text-muted mb-4">
+            Enhanced capabilities thanks to an enlarged display of 6.7 inches and
+            work without recharging throughout the day. Incredible photos in both
+            low and bright light thanks to the new dual-camera system.
+          </p>
+        </div>
+        <div class="d-flex gap-3 mb-4">
+          <button class="btn btn-outline-dark w-50" type="button">
+            Add to Wishlist
+          </button>
+          <form action="/cart/add" method="POST" class="w-50 m-0">
+            <input type="hidden" name="productId" value="<%= product.id %>" />
+            <button type="submit" class="btn btn-dark w-100">
+              Add to Cart
+            </button>
+          </form>
+        </div>
+<div class="row g-3 mb-4">
+        <div class="col-6 col-md-4">
+          <div class=" p-3 d-flex align-items-center gap-3 h-100">
+            <img src="/static/images/icons/Delivery.png" width="56" />
+            <div>
+              <div class="fw-semibold small">Free Delivery</div>
+              <div class="text-muted">1-2 day</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <div class=" p-3 d-flex align-items-center gap-3 h-100">
+            <img src="/static/images/icons/Stock.png" width="56" />
+            <div>
+              <div class="fw-semibold small">In Stock</div>
+              <div class="text-muted">Today</div>
+            </div>
+          </div>
+        </div>
+     
+        <div class="col-6 col-md-4">
+          <div class=" p-3 d-flex align-items-center gap-3 h-100">
+            <img src="/static/images/icons/Guaranteed.png" width="56" />
+            <div>
+              <div class="fw-semibold small">Guaranteed
+                </div>
+              <div class="text-muted">1 year</div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+<%- include('../partials/details-reviews') %>
+<%- include('../partials/reviews') %>
+
+<!--alttaki ürünler-->
+<% if (relatedProducts && relatedProducts.length > 0) { %>
+<section class="w-100" style="background: #fafafa; padding: 40px 0">
+  <div class="container">
+    <h3 class="fw-bold mb-4">Related Products</h3>
+
+    <div class="row g-4">
+      <% relatedProducts.forEach((item) => { %>
+      <div class="col-6 col-md-3">
+        <a
+          href="/product/<%= item.id %>"
+          class="text-decoration-none text-dark"
+        >
+          <div
+            class="card h-100 border-0 shadow-sm"
+            style="background-color: #f6f6f6"
+          >
+            <img
+              src="<%= item.image ? item.image : '/static/images/Iphone.png' %>"
+              class="card-img-top p-3"
+              style="height: 200px; object-fit: contain"
+              alt="<%= item.name %>"
+            />
+            <div class="card-body text-center">
+              <h6 class="fw-semibold mb-1"><%= item.name %></h6>
+              <p class="text-muted mb-2">$<%= item.price %></p>
+              <button
+                class="btn btn-dark text-white border border-white px-4 py-2 mt-2"
+              >
+                Buy now
+              </button>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>

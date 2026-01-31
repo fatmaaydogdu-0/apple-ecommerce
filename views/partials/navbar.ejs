@@ -1,0 +1,153 @@
+<nav class="navbar border-bottom sticky-top bg-white">
+  <div class="container-fluid px-4">
+    <div class="d-flex align-items-center w-100 gap-4">
+      <!-- LOGO -->
+      <a class="navbar-brand fw-bold m-0" href="/" style="letter-spacing: 1px">
+        cyber
+      </a>
+
+      <form
+        action="/products/search"
+        method="GET"
+        class="d-none d-md-flex flex-grow-1"
+        style="max-width: 520px"
+      >
+        <div class="input-group">
+          <span
+            class="input-group-text bg-light border-0"
+            style="border-radius: 10px 0 0 10px"
+          >
+            <img
+              src="/static/images/Search.png"
+              alt="Search"
+              style="width: 18px; height: 18px"
+            />
+          </span>
+          <input
+            type="text"
+            name="q"
+            class="form-control bg-light border-0"
+            placeholder="Search"
+            required
+            style="border-radius: 0 10px 10px 0; height: 44px"
+          />
+        </div>
+      </form>
+
+      <!-- MENU-->
+      <ul
+        class="navbar-nav flex-row align-items-center ms-auto gap-4 d-none d-lg-flex"
+      >
+        <li class="nav-item">
+          <a class="nav-link fw-medium text-dark p-0" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary p-0" href="/products">Catalog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary p-0" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary p-0" href="/contact">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary p-0" href="/blog">Blog</a>
+        </li>
+
+        <% if (isAdmin) { %>
+        <li class="nav-item">
+          <a class="nav-link text-secondary p-0" href="/admin/product/create"
+            >Ürün ekle</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary p-0" href="/admin/products"
+            >Ürünler</a
+          >
+        </li>
+        <% } %>
+      </ul>
+
+      <!-- ICONS -->
+      <div class="d-none d-lg-flex align-items-center gap-3">
+        <a href="#" class="nav-link p-0">
+          <img
+            src="/static/images/Favorites.png"
+            alt="Fav"
+            style="width: 22px; height: 22px"
+          />
+        </a>
+
+        <a href="/cart" class="nav-link p-0">
+          <img
+            src="/static/images/Cart.png"
+            alt="Cart"
+            style="width: 22px; height: 22px"
+          />
+        </a>
+
+        <% if (isAuth) { %>
+        <a href="/account/logout" class="nav-link p-0">
+          <img
+            src="/static/images/pngwing.com-1767294818838.png"
+            alt="Logout"
+            style="width: 22px; height: 22px"
+          />
+        </a>
+        <% } else { %>
+        <a href="/account/auth" class="nav-link p-0">
+          <img
+            src="/static/images/User.jpg"
+            alt="User"
+            style="width: 22px; height: 22px"
+          />
+        </a>
+        <% } %>
+      </div>
+
+      <!-- MOBILE BUTTON -->
+      <button
+        class="btn d-lg-none ms-auto"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mobileMenu"
+      >
+        <img
+          src="/static/images/Burger.png"
+          alt="Menu"
+          style="width: 34px; height: 34px"
+        />
+      </button>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="collapse d-lg-none mt-3" id="mobileMenu">
+      <form action="/products/search" method="GET" class="mb-3">
+        <input
+          class="form-control bg-light border-0"
+          name="q"
+          placeholder="Search"
+          required
+          style="height: 44px; border-radius: 10px"
+        />
+      </form>
+
+      <div class="d-flex flex-column gap-2 pb-2">
+        <a class="text-dark text-decoration-none" href="/">Home</a>
+        <a class="text-dark text-decoration-none" href="/products">Catalog</a>
+        <a class="text-dark text-decoration-none" href="/about">About</a>
+        <a class="text-dark text-decoration-none" href="/contact">Contact Us</a>
+        <a class="text-dark text-decoration-none" href="/blog">Blog</a>
+
+        <% if (isAdmin) { %>
+        <a class="text-dark text-decoration-none" href="/admin/product/create"
+          >Ürün ekle</a
+        >
+        <a class="text-dark text-decoration-none" href="/admin/products"
+          >Ürünler</a
+        >
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,105 @@
+<div class="container py-5">
+  <!-- BREADCRUMB -->
+  <nav
+    class="py-3 mt-5 mb-5"
+    style="--bs-breadcrumb-divider: '>'"
+    aria-label="breadcrumb"
+  >
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item">
+        <a href="/" class="text-decoration-none text-muted">Home</a>
+      </li>
+
+      <li class="breadcrumb-item">
+        <a href="/products" class="text-decoration-none text-muted">Catalog</a>
+      </li>
+
+      <% if (selectedCategoryName) { %>
+      <li class="breadcrumb-item active text-dark" aria-current="page">
+        <%= selectedCategoryName %>
+      </li>
+      <% } %>
+    </ol>
+  </nav>
+
+  <div class="row g-4">
+    <!--  FILTER -->
+    <aside class="col-12 col-lg-3">
+      <!-- SEARCH -->
+      <form
+        action="/products/search"
+        method="GET"
+        class="d-none d-md-flex mb-3"
+      >
+        <div class="input-group">
+          <span class="input-group-text bg-light border-0">
+            <img src="/static/images/Search.png" alt="Search" width="18" />
+          </span>
+          <input
+            type="text"
+            name="q"
+            class="form-control bg-light border-0"
+            placeholder="Search"
+            required
+          />
+        </div>
+      </form>
+
+      <!-- BRAND FILTER -->
+      <form method="GET" action="/products">
+        <% if (selectedCategory) { %>
+        <input type="hidden" name="category" value="<%= selectedCategory %>" />
+        <% } %>
+
+        <select
+          class="form-select mb-3"
+          name="brand"
+          onchange="this.form.submit()"
+        >
+          <option value="">Brand</option>
+
+          <% for (let i = 0; i < brands.length; i++) { %>
+          <option value="<%= brands[i].brand %>"><%= brands[i].brand %></option>
+          <% } %>
+        </select>
+      </form>
+
+      <select class="form-select mb-2" disabled>
+        <option>Battery capacity</option>
+      </select>
+
+      <select class="form-select mb-2" disabled>
+        <option>Screen type</option>
+      </select>
+
+      <select class="form-select mb-2" disabled>
+        <option>Screen diagonal</option>
+      </select>
+
+      <select class="form-select mb-2" disabled>
+        <option>Protection class</option>
+      </select>
+
+      <select class="form-select mb-2" disabled>
+        <option>Built-in memory</option>
+      </select>
+    </aside>
+
+    <!--  PRODUCTS -->
+    <section class="col-12 col-lg-9">
+      <div class="row g-4">
+        <% if (products && products.length > 0) { %> <% for (let i = 0; i <
+        products.length; i++) { %> <%- include('../partials/product-card', {
+        product: products[i], colClass: 'col-6 col-md-4' }) %> <% } %> <% } else
+        { %>
+        <div class="col-12 text-center py-5">
+          <p class="text-muted">Ürün bulunamadı</p>
+        </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- PAGINATION -->
+    <%- include('../partials/paginations') %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="<%= colClass || 'col-6 col-lg-3' %>">
+  <div class="product-card h-100 d-flex flex-column position-relative">
+    <button class="favorite-btn" type="button">
+      <i class="far fa-heart"></i>
+    </button>
+
+    <!-- Product Link -->
+    <a
+      href="/product/<%= product.id %>"
+      class="product-link text-decoration-none text-dark"
+    >
+      <!-- Image -->
+      <div class="product-image-wrapper">
+        <img src="<%= product.image %>" alt="<%= product.name %>" />
+      </div>
+
+      <!-- Info -->
+      <div class="product-info text-center">
+        <h6 class="product-title"><%= product.name %></h6>
+        <div class="product-price">$<%= product.price %></div>
+      </div>
+    </a>
+
+    <a href="/product/<%= product.id %>" class="btn btn-dark mt-auto">
+      Buy Now
+    </a>
+  </div>
+</div>

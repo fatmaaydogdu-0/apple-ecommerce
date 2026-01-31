@@ -1,0 +1,19 @@
+<div class="row g-4 justify-content-center">
+  <% categories.forEach(category => { %>
+  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+    <a
+      href="/products?category=<%= category.id %>"
+      class="text-decoration-none text-dark"
+    >
+      <div class="text-center p-3 rounded bg-light">
+        <img
+          src="<%= category.image %>"
+          class="img-fluid mb-2"
+          style="max-height: 48px"
+        />
+        <div class="fw-semibold small"><%= category.name %></div>
+      </div>
+    </a>
+  </div>
+  <% }) %>
+</div>

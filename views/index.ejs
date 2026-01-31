@@ -1,0 +1,276 @@
+<section class="bg-white">
+  <!-- HERO -->
+  <div class="bg-dark text-white hero-wrap">
+    <div class="container">
+      <div class="row align-items-center hero-row">
+        <div class="col-lg-6 text-center text-lg-start py-5">
+          <p class="fs-5 mb-0">Pro.Beyond.</p>
+          <h1 class="display-1 fw-bold">IPhone 14 Pro</h1>
+          <p class="fs-5 text-white-50 mb-4">
+            Created to change everything for the better. For everyone
+          </p>
+          <button class="btn btn-outline-light btn-lg px-5">Shop Now</button>
+        </div>
+
+        <div class="col-lg-6 text-center">
+          <img
+            src="/static/images/Iphone Image.png"
+            class="img-fluid hero-img"
+            alt="iPhone 14 Pro"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- BANNERS -->
+  <div class="w-100 m-0 p-0">
+    <div class="row g-0">
+      <!-- SOL BLOK -->
+      <div class="col-lg-6">
+        <div class="row g-0 h-100">
+          <!-- Playstation -->
+          <div class="col-12">
+            <div
+              class="d-flex align-items-center gap-4 p-5 bg-white banner-row h-100"
+            >
+              <div class="w-50 text-center">
+                <img
+                  src="/static/images/PlayStation (2).png"
+                  class="img-fluid img-lg"
+                  alt=""
+                />
+              </div>
+              <div class="w-50">
+                <h2 class="fw-bold mb-2">Playstation 5</h2>
+                <p class="text-muted mb-0">
+                  Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O
+                  will redefine your PlayStation experience.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- AirPods -->
+          <div class="col-md-6">
+            <div
+              class="d-flex align-items-center gap-3 p-4 bg-light banner-row h-100"
+            >
+              <div class="w-50 text-center">
+                <img
+                  src="/static/images/hero__gnfk5g59t0qe_xlarge_2x 1.png"
+                  class="img-fluid img-sm"
+                  alt=""
+                />
+              </div>
+              <div class="w-50">
+                <h5 class="mb-1">
+                  <span class="fw-normal">Apple</span><br />
+                  AirPods <b>Max</b>
+                </h5>
+                <p class="text-muted small mb-0">
+                  Computational audio.<br />Listen, it's powerful
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision -->
+          <div class="col-md-6">
+            <div
+              class="d-flex align-items-center gap-3 p-4 bg-dark text-white banner-row h-100"
+            >
+              <div class="w-50 text-center">
+                <img
+                  src="/static/images/image 36 (2).png"
+                  class="img-fluid img-sm"
+                  alt=""
+                />
+              </div>
+              <div class="w-50">
+                <h5 class="mb-1">
+                  <span class="fw-normal">Apple</span><br />
+                  Vision Pro
+                </h5>
+                <p class="text-white-50 small mb-0">
+                  An immersive way to<br />experience entertainment
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAĞ BLOK -->
+      <div class="col-lg-6">
+        <div
+          class="d-flex align-items-center justify-content-between gap-4 p-5 bg-light banner-row banner-lg h-100"
+        >
+          <div class="w-50">
+            <h2 class="mb-3">
+              <span class="fw-light">Macbook</span> <b>Air</b>
+            </h2>
+            <p class="text-muted mb-4">
+              The new 15-inch MacBook Air makes room for more of what you love
+              with a spacious Liquid Retina display.
+            </p>
+            <button class="btn btn-outline-dark">Shop Now</button>
+          </div>
+          <div class="w-50 text-end">
+            <img
+              src="/static/images/MacBook Pro 14 (2).png"
+              class="img-fluid img-xl"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Categories-->
+  <div class="container my-5">
+    <h4 class="mt-2 mb-4">Browse By Category</h4>
+    <%- include('partials/category-menu', { categories }) %>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="mb-4">
+        <div class="d-flex align-items-center gap-4">
+          <p class="fw-bold mb-1">New Arrivals</p>
+          <p class="fw-semibold mb-0" style="color: #8b8b8b">Bestseller</p>
+          <p class="fw-semibold mb-0" style="color: #8b8b8b">
+            Featured Products
+          </p>
+        </div>
+      </div>
+      <!-- Products -->
+      <div class="row g-4 mb-4">
+        <% products.slice(0, 8).forEach(product => { %> <%-
+        include('partials/product-card', { product, colClass: 'col-6 col-lg-3'
+        }) %> <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER-2 -->
+  <div class="container my-4">
+    <div class="row g-3">
+      <!-- 1. CARD (SADECE DESKTOP) -->
+      <div class="col-12 col-md-3 d-none d-md-block">
+        <div class="card h-100 border-0">
+          <div class="card-body text-start">
+            <img
+              src="/static/images/Group 1 (2).png"
+              class="img-fluid mb-3"
+              alt=""
+            />
+            <h5 class="fw-normal">Popular Products</h5>
+            <p class="fw-light small">
+              iPad combines a magnificent 10.2-inch Retina display, incredible
+              performance, multitasking and ease of use.
+            </p>
+            <button class="btn btn-light btn-lg">Shop Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CARD (HER YERDE GÖRÜNÜR - MOBİLDE SADECE BU) -->
+      <div class="col-12 col-md-3">
+        <div class="card h-100 border-0" style="background-color: #f9f9f9">
+          <div class="card-body text-start">
+            <img
+              src="/static/images/image 64 (2).png"
+              class="img-fluid mb-3"
+              alt=""
+            />
+            <h5 class="fw-normal">iPad Pro</h5>
+            <p class="fw-light small">
+              iPad combines a magnificent 10.2-inch Retina display, incredible
+              performance, multitasking and ease of use.
+            </p>
+            <button class="btn btn-light btn-lg">Shop Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. CARD (SADECE DESKTOP) -->
+      <div class="col-12 col-md-3 d-none d-md-block">
+        <div class="card h-100 border-0" style="background-color: #eaeaea">
+          <div class="card-body text-start">
+            <img
+              src="/static/images/image 41 (1).png"
+              class="img-fluid mb-3"
+              alt=""
+            />
+            <h5 class="fw-normal">Samsung Galaxy</h5>
+            <p class="fw-light small">
+              iPad combines a magnificent 10.2-inch Retina display, incredible
+              performance, multitasking and ease of use.
+            </p>
+            <button class="btn btn-light btn-lg">Shop Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. CARD (SADECE DESKTOP) -->
+      <div class="col-12 col-md-3 d-none d-md-block">
+        <div
+          class="card h-100 border-0 text-white"
+          style="background-color: #2c2c2c"
+        >
+          <div class="card-body text-start">
+            <img
+              src="/static/images/Macbook 1 (1).png"
+              class="img-fluid mb-3"
+              alt=""
+            />
+            <h5 class="fw-normal">MacBook Pro</h5>
+            <p class="fw-light small">
+              iPad combines a magnificent 10.2-inch Retina display, incredible
+              performance, multitasking and ease of use.
+            </p>
+            <button class="btn btn-light btn-lg">Shop Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Discounts-->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <h3>Discount up to -50%</h3>
+      <!-- Products -->
+      <div class="row g-4 mb-4">
+        <% products.slice(8, 12).forEach(product => { %> <%-
+        include('partials/product-card', { product, colClass: 'col-6 col-lg-3'
+        }) %> <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- banner3 -->
+  <div class="banner3">
+    <!-- SOL GÖRSELLER -->
+    <div class="banner3-left">
+      <img src="/static/images/resim3.png" alt="" />
+      <img src="/static/images/resim2.png" alt="" />
+      <img src="/static/images/resim.png" alt="" />
+    </div>
+
+    <!-- ORTA METİN -->
+    <div class="banner3-center">
+      <h1>Big Summer <span>Sale</span></h1>
+      <p>Commodo fames vitae vitae leo mauris in. Eu consequat.</p>
+      <a href="/products" class="btn-banner">Shop Now</a>
+    </div>
+
+    <!-- SAĞ GÖRSELLER -->
+    <div class="banner3-right">
+      <img src="/static/images/resim5.png" alt="" />
+      <img src="/static/images/resim4.png" alt="" />
+    </div>
+  </div>
+</section>

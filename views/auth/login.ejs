@@ -1,0 +1,38 @@
+<div class="card shadow-lg border-0 rounded-4">
+  <div class="card-body p-4 p-md-5">
+    <div class="text-center mb-4">
+      <h1 class="h4 fw-bold mb-1">Hesabına giriş yap</h1>
+    </div>
+
+    <form action="/account/login" method="POST">
+      <div class="mb-3">
+        <label for="email" class="form-label fw-semibold"> Email adresi </label>
+        <input
+          type="email"
+          class="form-control form-control-lg"
+          id="email"
+          name="email"
+          placeholder="ornek@mail.com"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label fw-semibold"> Şifre </label>
+        <input
+          type="password"
+          class="form-control form-control-lg"
+          id="password"
+          name="password"
+          placeholder="••••••••"
+          required
+        />
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-dark w-100 py-2 fw-semibold">
+        Giriş Yap
+      </button>
+    </form>
+  </div>
+</div>

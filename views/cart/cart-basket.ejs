@@ -1,0 +1,101 @@
+<div class="container my-5">
+  <div class="row g-5">
+    <!--  SHOPPING CART -->
+    <div class="col-lg-8">
+      <h3 class="mb-4">Shopping Cart</h3>
+
+      <% if (Object.keys(cart.items).length === 0) { %>
+      <p>Sepet boş.</p>
+      <% } else { %> <% for (let id in cart.items) { let item = cart.items[id];
+      %>
+      <div
+        class="d-flex justify-content-between align-items-center border-bottom py-3"
+      >
+        <div class="d-flex gap-3 align-items-center">
+          <img src="<%= item.product.image %>" width="70" />
+          <div>
+            <strong><%= item.product.name %></strong><br />
+            <small>$<%= item.product.price %></small>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <form action="/cart/decrease/<%= id %>" method="POST">
+            <button class="btn">−</button>
+          </form>
+
+          <span style="border: 1px solid grey; width: 25px; border-radius: 4px;text-align: center;"><%= item.quantity %></span>
+
+          <form action="/cart/add" method="POST">
+            <input type="hidden" name="productId" value="<%= id %>" />
+            <button class="btn">+</button>
+          </form>
+
+          <strong>
+          $<%= (item.product.price * item.quantity).toFixed(2) %>
+        </strong>
+
+
+          <form action="/cart/remove/<%= id %>" method="POST">
+            <button class="btn">✕</button>
+          </form>
+        </div>
+
+      
+      </div>
+      <% } %> <% } %>
+    </div>
+
+    <!--  Order Summary -->
+
+      <div class="col-lg-4">
+        <div class="card p-4 shadow-sm sticky-top" style="top: 100px">
+          <h4 class="mb-4">Order Summary</h4>
+
+          <div class="mb-4">
+            <label class="form-label "
+              >Discount code / Promo code </label >
+            <input type="text" class="form-control" placeholder="Code" />
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label ">Your bonus card number</label>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Card Number"
+              />
+              <button class="btn btn-dark" type="button">Apply</button>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between mb-2">
+            <span>Subtotal</span>
+            <span>$<%= subtotal.toFixed(2) %></span>
+          </div>
+
+          <div class="d-flex justify-content-between text-muted mb-2">
+            <span>Estimated Tax</span>
+            <span>$<%= tax.toFixed(2) %></span>
+          </div>
+
+          <div class="d-flex justify-content-between text-muted mb-3">
+            <span>Shipping</span>
+            <span>$<%= shipping.toFixed(2) %></span>
+          </div>
+
+
+          <div class="d-flex justify-content-between fw-bold fs-5">
+            <span>Total</span>
+            <span>$<%= total.toFixed(2) %></span>
+          </div>
+
+          <a href="/checkout/step1" class="btn btn-dark w-100 mt-4">
+            Checkout
+          </a>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>

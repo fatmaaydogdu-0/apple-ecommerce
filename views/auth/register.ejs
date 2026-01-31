@@ -1,0 +1,46 @@
+<div class="card shadow-lg border-0 rounded-4">
+  <div class="card-body p-4 p-md-5">
+    <div class="text-center mb-4">
+      <h1 class="h4 fw-bold mb-1">Yeni hesabını oluştur</h1>
+    </div>
+
+    <form action="/account/register" method="POST">
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Ad Soyad</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control form-control-lg"
+          placeholder="Fatma Aydoğdu"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Email adresi</label>
+        <input
+          type="email"
+          name="email"
+          class="form-control form-control-lg"
+          placeholder="ornek@mail.com"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Şifre</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control form-control-lg"
+          placeholder="••••••••"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-dark w-100 py-2 fw-semibold">
+        Kayıt Ol
+      </button>
+    </form>
+  </div>
+</div>

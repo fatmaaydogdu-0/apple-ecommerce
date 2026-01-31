@@ -1,0 +1,116 @@
+<%- include('../partials/checkout-steps', { step: 3 }) %>
+
+<div class="container my-5">
+  <div class="row g-4">
+    <!-- SUMMARY -->
+    <div class="col-lg-5">
+      <div class="card p-4 shadow-sm border-0 summary-box">
+        <h5 class="mb-4">Summary</h5>
+
+        <% if (cart && cart.items) { %> <%
+        Object.values(cart.items).forEach(item => { %>
+        <div
+          class="d-flex justify-content-between align-items-center mb-3"
+          style="background-color: #f6f6f6; padding: 10px; border-radius: 5px"
+        >
+          <div class="d-flex align-items-center gap-3">
+            <img
+              src="<%= item.product.image %>"
+              width="48"
+              height="48"
+              style="object-fit: contain"
+            />
+            <div class="fw-semibold"><%= item.product.name %></div>
+          </div>
+
+          <div class="fw-semibold">
+            $<%= (item.product.price * item.quantity).toFixed(2) %>
+          </div>
+        </div>
+        <% }) %> <% } %>
+
+        <div class="mb-3">
+          <p class="text-muted">Addres</p>
+          <h5>1131 Dusty Townline, Jacksonville, TX 40322</h5>
+        </div>
+
+        <div>
+          <p class="text-muted">Shipment method</p>
+          <p>Free</p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <span>Subtotal</span>
+          <span>$<%= subtotal.toFixed(2) %></span>
+        </div>
+
+        <div class="d-flex justify-content-between text-muted">
+          <span>Tax</span>
+          <span>$<%= tax.toFixed(2) %></span>
+        </div>
+
+        <div class="d-flex justify-content-between text-muted">
+          <span>Shipping</span>
+          <span>$<%= shipping.toFixed(2) %></span>
+        </div>
+
+        <div class="d-flex justify-content-between fw-bold fs-5 mt-3">
+          <span>Total</span>
+          <span>$<%= total.toFixed(2) %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-7">
+      <div class="card p-4 shadow-sm border-0">
+        <h4>Payment</h4>
+
+        <div class="d-flex align-items-center gap-4 mt-3">
+          <p>Credit Card</p>
+          <p class="text-muted">PayPal</p>
+          <p class="text-muted">PayPal Credit</p>
+        </div>
+
+        <div class="card-box mb-4">
+          <img
+            src="/static/images/icons/Icons (3).png"
+            alt="Chip"
+            style="height: 32px"
+          />
+
+          <h5 class="mt-4 mb-0" style="letter-spacing: 2px">
+            4085 9536 8475 9530
+          </h5>
+
+          <p class="text-white small mt-2">Cardholder</p>
+
+          <img
+            src="/static/images/icons/Mastercard (1).png"
+            alt="Mastercard"
+            class="position-absolute"
+            style="bottom: 20px; right: 20px; width: 60px"
+          />
+        </div>
+
+        <input class="form-control mt-3" placeholder="Cardholder Name" />
+        <input class="form-control mt-3" placeholder="Card Number" />
+
+        <div class="d-flex gap-3 mt-3">
+          <input class="form-control" placeholder="MM/YY" />
+          <input class="form-control" placeholder="CVC" />
+        </div>
+        <div class="form-check check-dark">
+          <input class="form-check-input" type="checkbox" id="saveCard" />
+          <label class="form-check-label" for="saveCard">
+            Save this card for future payments
+          </label>
+        </div>
+
+        <div class="d-flex gap-3 mt-4">
+          <a href="/checkout/step2" class="btn btn-light flex-fill">Back</a>
+          <button class="btn btn-dark flex-fill">Pay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

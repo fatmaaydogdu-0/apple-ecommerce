@@ -1,0 +1,49 @@
+<%- include('../partials/checkout-steps', { step: 2 }) %>
+
+<div class="container checkout-step-wrap">
+  <h4 class="m-1">Shipment Method</h4>
+
+  <label class="shipping-card active mb-3 mt-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <input type="radio" name="shipping" checked />
+        <div class="fw-bold">
+          Free <span class="text-muted fw-normal">Regular shipment</span>
+        </div>
+      </div>
+      <div class="text-muted small">17 Oct 2023</div>
+    </div>
+  </label>
+
+  <label class="shipping-card disabled mb-3 text-muted">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <input type="radio" name="shipping" disabled />
+        <div class="fw-bold">
+          $9.99 <span class="text-muted fw-normal">Express shipment</span>
+        </div>
+      </div>
+      <div class="text-muted small">13 Oct 2023</div>
+    </div>
+  </label>
+
+  <label class="shipping-card disabled text-muted">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <input type="radio" name="shipping" disabled />
+        <div>
+          <div class="fw-bold">Schedule</div>
+          <div class="text-muted small">
+            Pick a date when you want to get your delivery
+          </div>
+        </div>
+      </div>
+      <div class="text-muted small">Select date</div>
+    </div>
+  </label>
+
+  <div class="checkout-btn">
+    <a href="/checkout/step1" class="btn btn-light px-5">Back</a>
+    <a href="/checkout/step3" class="btn btn-dark px-5">Next</a>
+  </div>
+</div>
